@@ -1,9 +1,3 @@
-//
-//
-//                  PayOffForward.cpp
-//
-//
-
 #include <PayOffForward.h>
 
 double PayOffForward::operator () (double Spot) const

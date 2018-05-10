@@ -1,10 +1,3 @@
-//
-//
-//
-//                    PathDependentAsian.cpp
-//
-//
-
 #include <PathDependentAsian.h>
 
 PathDependentAsian::PathDependentAsian(const MJArray& LookAtTimes_,
@@ -17,7 +10,7 @@ PathDependentAsian::PathDependentAsian(const MJArray& LookAtTimes_,
 
 unsigned long PathDependentAsian::MaxNumberOfCashFlows() const
 {
-     return 1UL;
+    return 1UL;
 }
 
 MJArray PathDependentAsian::PossibleCashFlowTimes() const

@@ -1,17 +1,9 @@
-//
-//
-//                      Random3.cpp
-//
-//
-
 #include <Random3.h>
-
 #include <cstdlib>
 
 #if !defined(_MSC_VER)
 using namespace std;
 #endif
-
 
 RandomRand::RandomRand(unsigned long Dimensionality, unsigned long InitialSeed_) : RandomBase(Dimensionality),
                                                                                    InitialSeed(InitialSeed_)
@@ -27,8 +19,7 @@ RandomBase* RandomRand::clone() const
 void RandomRand::GetUniforms(MJArray& variates)
 {
     for (unsigned long i = 0; i < GetDimensionality(); i++)
-       variates[i] = (rand()+1.0)/(RAND_MAX+2.0);
-
+        variates[i] = (rand()+1.0)/(RAND_MAX+2.0);
 }
 
 void RandomRand::Skip(unsigned long numberOfPaths)

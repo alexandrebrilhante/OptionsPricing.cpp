@@ -1,9 +1,3 @@
-//
-//
-//                      TreeMain.cpp
-//
-//
-//
 /*
 Uses
 Arrays.cpp
@@ -26,40 +20,41 @@ Arrays.cpp
 #include <BlackScholesFormulas.h>
 #include <PayOffForward.h>
 #include <iostream>
+
 using namespace std;
+
 #include <cmath>
 
 int main()
 {
-
-	double Expiry;
-	double Strike;
-	double Spot;
-	double Vol;
-	double r;
+    double Expiry;
+    double Strike;
+    double Spot;
+    double Vol;
+    double r;
     double d;
-	unsigned long Steps;
+    unsigned long Steps;
 
-	cout << "\nEnter expiry\n";
-	cin >> Expiry;
+    cout << "\nEnter expiry\n";
+    cin >> Expiry;
 
-	cout << "\nStrike\n";
-	cin >> Strike;
+    cout << "\nStrike\n";
+    cin >> Strike;
 
-	cout << "\nEnter spot\n";
-	cin >> Spot;
+    cout << "\nEnter spot\n";
+    cin >> Spot;
 
-	cout << "\nEnter vol\n";
-	cin >> Vol;
+    cout << "\nEnter vol\n";
+    cin >> Vol;
 
-	cout << "\nr\n";
-	cin >> r;
+    cout << "\nr\n";
+    cin >> r;
 
     cout << "\nd\n";
     cin >> d;
 
     cout << "\nNumber of steps\n";
-	cin >> Steps;
+    cin >> Steps;
 
     PayOffCall thePayOff(Strike);
 
@@ -70,11 +65,14 @@ int main()
     TreeAmerican americanOption(Expiry, thePayOff);
 
     SimpleBinomialTree theTree(Spot, rParam, dParam, Vol, Steps, Expiry);
+
     double euroPrice = theTree.GetThePrice(europeanOption);
     double americanPrice = theTree.GetThePrice(americanOption);
+
     cout << "euro price " << euroPrice << " amer price " << americanPrice << "\n";
 
     double BSPrice = BlackScholesCall(Spot, Strike, r, d, Vol, Expiry);
+
     cout << "BS formula euro price " << BSPrice << "\n";
 
     PayOffForward forwardPayOff(Strike);
@@ -108,5 +106,5 @@ int main()
     double tmp;
     cin >> tmp;
 
-	return 0;
+    return 0;
 }

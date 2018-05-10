@@ -1,9 +1,3 @@
-//
-//
-//                  Vanilla3.cpp
-//
-//
-
 #include <Vanilla3.h>
 
 VanillaOption::VanillaOption(const PayOffBridge& ThePayOff_, double Expiry_) : ThePayOff(ThePayOff_), Expiry(Expiry_)

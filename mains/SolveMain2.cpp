@@ -1,14 +1,10 @@
-//
-//
-//              SolveMain2.cpp
-//
-//
 /*
-Needs
+Uses
     BlackScholesFormulas.cpp
     BSCallTwo.cpp
     Normals.cpp
 */
+
 #include <NewtonRaphson.h>
 #include <cmath>
 #include <iostream>
@@ -19,27 +15,27 @@ using namespace std;
 
 int main()
 {
-  	double Expiry;
-	double Strike;
-	double Spot;
-	double r;
+    double Expiry;
+    double Strike;
+    double Spot;
+    double r;
     double d;
     double Price;
 
-	cout << "\nEnter expiry\n";
-	cin >> Expiry;
+    cout << "\nEnter expiry\n";
+    cin >> Expiry;
 
-	cout << "\nStrike\n";
-	cin >> Strike;
+    cout << "\nStrike\n";
+    cin >> Strike;
 
-	cout << "\nEnter spot\n";
-	cin >> Spot;
+    cout << "\nEnter spot\n";
+    cin >> Spot;
 
-	cout << "\nEnter price\n";
-	cin >> Price;
+    cout << "\nEnter price\n";
+    cin >> Price;
 
-	cout << "\nr\n";
-	cin >> r;
+    cout << "\nr\n";
+    cin >> r;
 
     cout << "\nd\n";
     cin >> d;

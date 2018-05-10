@@ -1,9 +1,3 @@
-//
-//
-//                       ParkMiller.cpp
-//
-//
-
 #include <ParkMiller.h>
 
 const long a = 16807;
@@ -19,8 +13,8 @@ ParkMiller::ParkMiller(long Seed_) : Seed(Seed_)
 
 void ParkMiller::SetSeed(long Seed_)
 {
-  Seed = Seed_;
-  if (Seed == 0)
+    Seed = Seed_;
+    if (Seed == 0)
         Seed = 1;
 }
 
@@ -37,7 +31,6 @@ unsigned long ParkMiller::Min()
 long ParkMiller::GetOneRandomInteger()
 {
     long k;
-
     k = Seed/q;
 
     Seed = a*(Seed-k*q)-r*k;
@@ -47,7 +40,6 @@ long ParkMiller::GetOneRandomInteger()
 
     return Seed;
 }
-
 
 RandomParkMiller::RandomParkMiller(unsigned long Dimensionality, unsigned long Seed) : RandomBase(Dimensionality),
                                                                                        InnerGenerator(Seed),
@@ -71,6 +63,7 @@ void RandomParkMiller::GetUniforms(MJArray& variates)
 void RandomParkMiller::Skip(unsigned long numberOfPaths)
 {
     MJArray tmp(GetDimensionality());
+
     for (unsigned long j = 0; j < numberOfPaths; j++)
         GetUniforms(tmp);
 }

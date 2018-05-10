@@ -1,9 +1,3 @@
-//
-//
-//               PayOffBridge.cpp
-//
-//
-
 #include<PayOffBridge.h>
 
 PayOffBridge::PayOffBridge(const PayOffBridge& original)

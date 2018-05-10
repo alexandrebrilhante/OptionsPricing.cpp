@@ -1,28 +1,18 @@
-//
-//
-//	                	BinomialTree.cpp
-//
-//
-
 #include <BinomialTree.h>
 #include <Arrays.h>
 #include <cmath>
 
 #if !defined(_MSC_VER)
+
 using namespace std;
+
 #endif
 
-SimpleBinomialTree::SimpleBinomialTree(double Spot_,
-									   const Parameters& r_,
-									   const Parameters& d_,
-									   double Volatility_,
-                                       unsigned long Steps_,
-                                       double Time_) : Spot(Spot_),
-                                                       r(r_), d(d_),
-                                                       Volatility(Volatility_),
-                                                       Steps(Steps_),
-                                                       Time(Time_),
-                                                       Discounts(Steps)
+SimpleBinomialTree::SimpleBinomialTree(double Spot_, const Parameters& r_,
+                                       const Parameters& d_, double Volatility_,
+                                       unsigned long Steps_, double Time_) : Spot(Spot_), r(r_), d(d_),
+                                                                             Volatility(Volatility_), Steps(Steps_),
+                                                                             Time(Time_), Discounts(Steps)
 {
     TreeBuilt = false;
 }
@@ -36,7 +26,6 @@ void SimpleBinomialTree::BuildTree()
 
     for (unsigned long i = 0; i <=Steps; i++)
     {
-
         TheTree[i].resize(i+1);
 
         double thisTime = (i*Time)/Steps;
@@ -48,7 +37,7 @@ void SimpleBinomialTree::BuildTree()
         double sd = Volatility*sqrt(Time/Steps);
 
         for (long j = -static_cast<long>(i), k = 0; j <= static_cast<long>(i); j = j+2, k++)
-              TheTree[i][k].first = exp(movedLogSpot+j*sd);
+            TheTree[i][k].first = exp(movedLogSpot+j*sd);
     }
 
     for (unsigned long l = 0; l < Steps; l++)
@@ -79,7 +68,7 @@ double SimpleBinomialTree::GetThePrice(const TreeProduct& TheProduct)
             double futureDiscountedValue = 0.5*Discounts[index]*(TheTree[index+1][k].second+TheTree[index+1][k+1].second);
             TheTree[index][k].second = TheProduct.PreFinalValue(Spot, ThisTime, futureDiscountedValue);
         }
-
     }
+
     return TheTree[0][0].second;
 }

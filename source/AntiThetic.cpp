@@ -1,9 +1,3 @@
-//
-//
-//                  AntiThetic.cpp
-//
-//
-
 #include <AntiThetic.h>
 
 AntiThetic::AntiThetic(const Wrapper<RandomBase>& innerGenerator) : RandomBase(*innerGenerator),
@@ -30,10 +24,10 @@ void AntiThetic::GetUniforms(MJArray& variates)
 
         OddEven = false;
     }
+
     else
     {
         variates = NextVariates;
-
         OddEven = true;
     }
 }
@@ -60,18 +54,14 @@ void AntiThetic::Skip(unsigned long numberOfPaths)
     if (numberOfPaths % 2)
     {
         MJArray tmp(GetDimensionality());
-
         GetUniforms(tmp);
     }
-
 }
 
 void AntiThetic::ResetDimensionality(unsigned long NewDimensionality)
 {
     RandomBase::ResetDimensionality(NewDimensionality);
-
     NextVariates.resize(NewDimensionality);
-
     InnerGenerator->ResetDimensionality(NewDimensionality);
 }
 

@@ -1,29 +1,26 @@
-//
-//
-//          		SimpleMCMain3.cpp
-//
-//
 /*
-requires
-        PayOff2.cpp
-        Random1.cpp
-        SimpleMC2.cpp
-        SimpleMCMain3.cpp
+Uses
+ 	PayOff2.cpp
+ 	Random1.cpp
+ 	SimpleMC2.cpp
+ 	SimpleMCMain3.cpp
 */
+
 #include<SimpleMC2.h>
 #include<iostream>
+
 using namespace std;
 
 int main()
 {
-	double Expiry;
-	double Strike;
-	double Spot;
-	double Vol;
-	double r;
-	unsigned long NumberOfPaths;
+    double Expiry;
+    double Strike;
+    double Spot;
+    double Vol;
+    double r;
+    unsigned long NumberOfPaths;
 
-	cout << "\nEnter expiry\n";
+    cout << "\nEnter expiry\n";
 	cin >> Expiry;
 
 	cout << "\nEnter strike\n";
@@ -41,28 +38,18 @@ int main()
 	cout << "\nNumber of paths\n";
 	cin >> NumberOfPaths;
 
-    PayOffCall callPayOff(Strike);
-    PayOffPut putPayOff(Strike);
+	PayOffCall callPayOff(Strike);
 
-	double resultCall = SimpleMonteCarlo2(callPayOff,
-                                          Expiry,
-							              Spot,
-							              Vol,
-							              r,
-						                  NumberOfPaths);
+	PayOffPut putPayOff(Strike);
 
-    double resultPut = SimpleMonteCarlo2(putPayOff,
-                                         Expiry,
-							             Spot,
-							             Vol,
-							             r,
-						                 NumberOfPaths);
+	double resultCall = SimpleMonteCarlo2(callPayOff, Expiry, Spot, Vol, r, NumberOfPaths);
 
-	cout << "the prices are " << resultCall << " for the call and " << resultPut << " for the put\n";
+    double resultPut = SimpleMonteCarlo2(putPayOff, Expiry, Spot, Vol, r, NumberOfPaths);
+
+    cout << "the prices are " << resultCall << " for the call and " << resultPut << " for the put\n";
 
     double tmp;
     cin >> tmp;
 
-	return 0;
-
+    return 0;
 }

@@ -1,9 +1,3 @@
-//
-//
-//		EquityFXMain.cpp
-//
-//
-//
 /*
 Uses
     AntiThetic.cpp
@@ -34,33 +28,29 @@ using namespace std;
 
 int main()
 {
-
-	double Expiry;
-	double Strike;
-	double Spot;
-	double Vol;
-	double r;
+    double Expiry;
+    double Strike;
+    double Spot;
+    double Vol;
+    double r;
     double d;
-	unsigned long NumberOfPaths;
+    unsigned long NumberOfPaths;
     unsigned NumberOfDates;
 
-	cout << "\nEnter expiry\n";
-	cin >> Expiry;
+    cout << "\nEnter expiry\n";
+    cin >> Expiry;
 
+    cout << "\nStrike\n";
+    cin >> Strike;
 
-	cout << "\nStrike\n";
-	cin >> Strike;
+    cout << "\nEnter spot\n";
+    cin >> Spot;
 
+    cout << "\nEnter vol\n";
+    cin >> Vol;
 
-	cout << "\nEnter spot\n";
-	cin >> Spot;
-
-	cout << "\nEnter vol\n";
-	cin >> Vol;
-
-
-	cout << "\nr\n";
-	cin >> r;
+    cout << "\nr\n";
+    cin >> r;
 
     cout << "\nd\n";
     cin >> d;
@@ -71,47 +61,44 @@ int main()
 	cout << "\nNumber of paths\n";
 	cin >> NumberOfPaths;
 
-    PayOffCall thePayOff(Strike);
+	PayOffCall thePayOff(Strike);
 
+	MJArray times(NumberOfDates);
 
-    MJArray times(NumberOfDates);
+	for (unsigned long i = 0; i < NumberOfDates; i++)
+	    times[i] = (i+1.0)*Expiry/NumberOfDates;
 
-    for (unsigned long i = 0; i < NumberOfDates; i++)
-        times[i] = (i+1.0)*Expiry/NumberOfDates;
+	ParametersConstant VolParam(Vol);
+	ParametersConstant rParam(r);
+	ParametersConstant dParam(d);
 
-    ParametersConstant VolParam(Vol);
-    ParametersConstant rParam(r);
-    ParametersConstant dParam(d);
+	PathDependentAsian theOption(times, Expiry, thePayOff);
 
-    PathDependentAsian theOption(times, Expiry, thePayOff);
+	StatisticsMean gatherer;
 
-    StatisticsMean gatherer;
-    ConvergenceTable gathererTwo(gatherer);
+	ConvergenceTable gathererTwo(gatherer);
 
+	RandomParkMiller generator(NumberOfDates);
 
-    RandomParkMiller generator(NumberOfDates);
+	AntiThetic GenTwo(generator);
 
-    AntiThetic GenTwo(generator);
+	ExoticBSEngine theEngine(theOption, rParam, dParam, VolParam, GenTwo, Spot);
 
-    ExoticBSEngine theEngine(theOption, rParam, dParam, VolParam, GenTwo, Spot);
+	theEngine.DoSimulation(gathererTwo, NumberOfPaths);
 
-    theEngine.DoSimulation(gathererTwo, NumberOfPaths);
-
-    vector<vector<double> > results =gathererTwo.GetResultsSoFar();
+	vector<vector<double> > results =gathererTwo.GetResultsSoFar();
 
 	cout << "\nFor the Asian call price the results are \n";
 
-    for (unsigned long i = 0; i < results.size(); i++)
-    {
-        for (unsigned long j = 0; j < results[i].size(); j++)
-            cout << results[i][j] << " ";
+	for (unsigned long i = 0; i < results.size(); i++)
+	{
+	    for (unsigned long j = 0; j < results[i].size(); j++)
+	        cout << results[i][j] << " ";
+	    cout << "\n";
+	}
 
-        cout << "\n";
-    }
-
-    double tmp;
-    cin >> tmp;
+	double tmp;
+	cin >> tmp;
 
 	return 0;
-
 }

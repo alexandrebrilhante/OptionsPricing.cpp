@@ -1,15 +1,11 @@
-//
-//
-//                        BlackScholesFormulas.cpp
-//
-//
-
 #include <BlackScholesFormulas.h>
 #include <Normals.h>
 #include <cmath>
 
 #if !defined(_MSC_VER)
+
 using namespace std;
+
 #endif
 
 double BlackScholesCall(double Spot,
@@ -25,7 +21,6 @@ double BlackScholesCall(double Spot,
     double d2 = d1-standardDeviation;
     return Spot*exp(-d*Expiry)*CumulativeNormal(d1)-Strike*exp(-r*Expiry)*CumulativeNormal(d2);
 }
-
 
 double BlackScholesPut(double Spot,
                        double Strike,
@@ -78,6 +73,4 @@ double BlackScholesCallVega(double Spot,
     double moneyness = log(Spot/Strike);
     double d1 = (moneyness+(r-d)*Expiry+0.5*standardDeviation*standardDeviation)/standardDeviation;
     return Spot*exp(-d*Expiry)*sqrt(Expiry)*NormalDensity(d1);
-
-
 }

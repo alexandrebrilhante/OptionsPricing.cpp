@@ -1,20 +1,15 @@
-//
-//
-//                  PayOffFactory.cpp:
-//
-//
-
 #if defined(_MSC_VER)
 #pragma warning(disable : 4786)
 #endif
 
 #include <PayOffFactory.h>
 #include <iostream>
+
 using namespace std;
 
 void PayOffFactory::RegisterPayOff(string PayOffId, CreatePayOffFunction CreatorFunction)
 {
-     TheCreatorFunctions.insert(pair<string, CreatePayOffFunction>(PayOffId, CreatorFunction));
+    TheCreatorFunctions.insert(pair<string, CreatePayOffFunction>(PayOffId, CreatorFunction));
 }
 
 PayOff* PayOffFactory::CreatePayOff(string PayOffId, double Strike)
@@ -23,8 +18,8 @@ PayOff* PayOffFactory::CreatePayOff(string PayOffId, double Strike)
 
     if (i == TheCreatorFunctions.end())
     {
-		std::cout << PayOffId << " is an unknown payoff" << std::endl;
-		return NULL;
+        std::cout << PayOffId << " is an unknown payoff" << std::endl;
+        return NULL;
 	}
 
 	return (i->second)(Strike);

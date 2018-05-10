@@ -1,9 +1,3 @@
-//
-//
-//                      TreeEuropean.cpp
-//
-//
-
 #include <TreeEuropean.h>
 #include <minmax.h>
 

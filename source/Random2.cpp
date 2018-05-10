@@ -1,9 +1,3 @@
-//
-//
-//                      Random2.cpp
-//
-//
-
 #include <Random2.h>
 #include <Normals.h>
 #include <cstdlib>
@@ -12,7 +6,6 @@
 using namespace std;
 #endif
 
-
 void RandomBase::GetGaussians(MJArray& variates)
 {
     GetUniforms(variates);
@@ -20,6 +13,7 @@ void RandomBase::GetGaussians(MJArray& variates)
     for (unsigned long i = 0; i < Dimensionality; i++)
     {
         double x = variates[i];
+
         variates[i] = InverseCumulativeNormal(x);
     }
 }

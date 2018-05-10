@@ -1,46 +1,41 @@
-//
-//
-//
-//                  Parameters.cpp
-//
-//
-
 #include <Parameters.h>
 
 Parameters::Parameters(const ParametersInner& innerObject)
 {
-   InnerObjectPtr = innerObject.clone();
+    InnerObjectPtr = innerObject.clone();
 }
 
 Parameters::Parameters(const Parameters& original)
 {
-   InnerObjectPtr = original.InnerObjectPtr->clone();
+    InnerObjectPtr = original.InnerObjectPtr->clone();
 }
 
 Parameters& Parameters::operator=(const Parameters& original)
 {
-   if (this != &original)
-   {
-      delete InnerObjectPtr;
-      InnerObjectPtr = original.InnerObjectPtr->clone();
-   }
-   return *this;
+    if (this != &original)
+    {
+        delete InnerObjectPtr;
+        InnerObjectPtr = original.InnerObjectPtr->clone();
+    }
+    return *this;
 }
 
 Parameters::~Parameters()
 {
-   delete InnerObjectPtr;
+    delete InnerObjectPtr;
 }
 
 double Parameters::Mean(double time1, double time2) const
 {
     double total = Integral(time1, time2);
+
     return total/(time2-time1);
 }
 
 double Parameters::RootMeanSquare(double time1, double time2) const
 {
     double total = IntegralSquare(time1, time2);
+
     return total/(time2-time1);
 }
 

@@ -1,9 +1,3 @@
-//
-//
-//                          PayOff3.cpp
-//
-//
-
 #include <PayOff3.h>
 #include <minmax.h>
 

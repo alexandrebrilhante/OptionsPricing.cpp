@@ -1,11 +1,5 @@
-//
-//
-//                      BSCallClass.cpp
-//
-//
-
 #include <BSCallClass.h>
-#include <BlackScholesFormulas.h>
+#include <BlackScholesFormulas.h
 
 BSCall::BSCall(double r_, double d_,
                double T_, double Spot_,

@@ -1,8 +1,3 @@
-//
-//
-//                  payfactorymain.cpp
-//
-//
 /*
 Uses
     PayOff3.cpp
@@ -23,8 +18,8 @@ using namespace std;
 
 int main()
 {
-
     double Strike;
+
     std::string name;
 
     cout << "Enter strike\n";
@@ -48,5 +43,7 @@ int main()
 
     double tmp;
     cin >> tmp;
+
     return 0;
+
 }

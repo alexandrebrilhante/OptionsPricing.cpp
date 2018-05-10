@@ -1,9 +1,3 @@
-//
-//
-//                           PayOffFactory.h
-//
-//
-
 #ifndef PAYOFF_FACTORY_H
 #define PAYOFF_FACTORY_H
 #include <PayOff3.h>

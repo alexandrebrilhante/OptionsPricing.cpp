@@ -1,14 +1,6 @@
-//
-//
-//
-//                          ConvergenceTable.cpp
-//
-//
-
 #include<ConvergenceTable.h>
 
-ConvergenceTable::ConvergenceTable(const Wrapper<StatisticsMC>& Inner_)
-: Inner(Inner_)
+ConvergenceTable::ConvergenceTable(const Wrapper<StatisticsMC>& Inner_) : Inner(Inner_)
 {
     StoppingPoint = 2;
     PathsDone = 0;
@@ -27,6 +19,7 @@ void ConvergenceTable::DumpOneResult(double result)
     if (PathsDone == StoppingPoint)
     {
         StoppingPoint *= 2;
+
         std::vector<std::vector<double> > thisResult(Inner->GetResultsSoFar());
 
         for (unsigned long i = 0; i < thisResult.size(); i++)
@@ -35,12 +28,10 @@ void ConvergenceTable::DumpOneResult(double result)
             ResultsSoFar.push_back(thisResult[i]);
         }
     }
-
     return;
-
 }
 
-std::vector<std::vector<double> >  ConvergenceTable::GetResultsSoFar() const
+std::vector<std::vector<double> > ConvergenceTable::GetResultsSoFar() const
 {
     std::vector<std::vector<double> > tmp(ResultsSoFar);
 

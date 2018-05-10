@@ -1,24 +1,16 @@
-//
-//
-//
-//
-//                               PayOff1.h
-//
-//
-//
-
 #ifndef PAYOFF_H
 #define PAYOFF_H
 
 class PayOff
 {
+    public:
+        enum OptionType {call, put};
 
-public:
-    enum  OptionType {call, put};
-    PayOff(double Strike_, OptionType TheOptionsType_);
-    double operator()(double Spot) const;
+        PayOff(double Strike_, OptionType TheOptionsType_);
 
-private:
+        double operator()(double Spot) const;
+
+    private:
     double Strike;
     OptionType TheOptionsType;
 

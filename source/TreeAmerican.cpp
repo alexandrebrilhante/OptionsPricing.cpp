@@ -1,9 +1,3 @@
-//
-//
-//                      TreeAmerican.cpp
-//
-//
-
 #include <TreeAmerican.h>
 #include <minmax.h>
 
@@ -13,7 +7,7 @@ TreeAmerican::TreeAmerican(double FinalTime, const PayOffBridge& ThePayOff_) : T
 
 TreeProduct* TreeAmerican::clone() const
 {
-     return new TreeAmerican(*this);
+    return new TreeAmerican(*this);
 }
 
 double TreeAmerican::FinalPayOff(double Spot) const

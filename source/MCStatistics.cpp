@@ -1,11 +1,5 @@
-//
-//
-//
-//                      MCStatistics.cpp
-//
-//
-
 #include<MCStatistics.h>
+
 using namespace std;
 
 StatisticsMean::StatisticsMean() : RunningSum(0.0), PathsDone(0UL)

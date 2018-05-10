@@ -1,9 +1,3 @@
-//
-//
-//                          PayOff2.cpp
-//
-//
-
 #include <PayOff2.h>
 #include <minmax.h>
 

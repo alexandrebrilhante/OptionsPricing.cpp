@@ -1,16 +1,8 @@
-//
-//
-//
-//                            DoubleDigital2.cpp
-//
-//
-
 #include <DoubleDigital2.h>
 
 PayOffDoubleDigital::PayOffDoubleDigital(double LowerLevel_, double UpperLevel_) : LowerLevel(LowerLevel_),
                                                                                    UpperLevel(UpperLevel_)
-{
-}
+{}
 
 double PayOffDoubleDigital::operator()(double Spot) const
 {
@@ -21,7 +13,6 @@ double PayOffDoubleDigital::operator()(double Spot) const
 
     return 1;
 }
-
 
 PayOff* PayOffDoubleDigital::clone() const
 {

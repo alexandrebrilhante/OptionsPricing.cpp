@@ -1,16 +1,8 @@
-//
-//
-//
-//                      ExoticBSEngine.cpp
-//
-//
-
 #include <ExoticBSEngine.h>
 #include <cmath>
 
 void ExoticBSEngine::GetOnePath(MJArray& SpotValues)
 {
-
     TheGenerator->GetGaussians(Variates);
 
     double CurrentLogSpot = LogSpot;
@@ -33,6 +25,7 @@ ExoticBSEngine::ExoticBSEngine(const Wrapper<PathDependent>& TheProduct_,
                                double Spot_) : ExoticEngine(TheProduct_, R_), TheGenerator(TheGenerator_)
 {
     MJArray Times(TheProduct_->GetLookAtTimes());
+
     NumberOfTimes = Times.size();
 
     TheGenerator->ResetDimensionality(NumberOfTimes);

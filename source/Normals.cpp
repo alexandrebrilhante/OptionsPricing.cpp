@@ -1,9 +1,3 @@
-//
-//
-//                  Normals.cpp
-//
-//
-
 #include <cmath>
 #include <Normals.h>
 
@@ -21,14 +15,14 @@ double NormalDensity(double x)
 double InverseCumulativeNormal(double u)
 {
     static double a[4] = {2.50662823884,
-                        -18.61500062529,
-                         41.39119773534,
-                        -25.44106049637};
+                          -18.61500062529,
+                          41.39119773534,
+                          -25.44106049637};
 
     static double b[4] = {-8.47351093090,
                           23.08336743743,
-                         -21.06224101826,
-                           3.13082909833};
+                          -21.06224101826,
+                          3.13082909833};
 
     static double c[9] = {0.3374754822726147,
                           0.9761690190917186,
@@ -40,7 +34,6 @@ double InverseCumulativeNormal(double u)
                           0.0000002888167364,
                           0.0000003960315187};
 
-
     double x = u-0.5;
     double r;
 
@@ -49,8 +42,8 @@ double InverseCumulativeNormal(double u)
         double y = x*x;
 
         r = x*(((a[3]*y+a[2])*y+a[1])*y+a[0])/((((b[3]*y+b[2])*y+b[1])*y+b[0])*y+1.0);
-
     }
+
     else
     {
         r = u;
@@ -64,7 +57,6 @@ double InverseCumulativeNormal(double u)
 
         if (x < 0.0)
             r = -r;
-
     }
 
     return r;
@@ -73,9 +65,9 @@ double InverseCumulativeNormal(double u)
 double CumulativeNormal(double x)
 {
     static double a[5] = {0.319381530,
-                         -0.356563782,
+                          -0.356563782,
                           1.781477937,
-                         -1.821255978,
+                          -1.821255978,
                           1.330274429};
 
     double result;
@@ -87,6 +79,7 @@ double CumulativeNormal(double x)
     {
         if (x > 7.0)
             result = 1.0-CumulativeNormal(-x);
+
         else
         {
             double tmp = 1.0/(1.0+0.2316419*fabs(x));
@@ -95,9 +88,7 @@ double CumulativeNormal(double x)
 
             if (x <= 0.0)
                 result = 1.0-result;
-
         }
     }
-
     return result;
 }

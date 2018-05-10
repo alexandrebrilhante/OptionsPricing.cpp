@@ -1,9 +1,3 @@
-//
-//
-//                       PayOffBridge.h
-//
-//
-
 #ifndef PAYOFFBRIDGE_H
 #define PAYOFFBRIDGE_H
 
@@ -11,17 +5,18 @@
 
 class PayOffBridge
 {
-public:
-    PayOffBridge(const PayOffBridge& original);
-    PayOffBridge(const PayOff& innerPayOff);
+    public:
+        PayOffBridge(const PayOffBridge& original);
+        PayOffBridge(const PayOff& innerPayOff);
 
-    inline double operator()(double Spot) const;
-    ~PayOffBridge();
-    PayOffBridge& operator = (const PayOffBridge& original);
+        inline double operator()(double Spot) const;
 
-private:
+        ~PayOffBridge();
+
+        PayOffBridge& operator = (const PayOffBridge& original);
+
+    private:
     PayOff* ThePayOffPtr;
-
 };
 
 inline double PayOffBridge::operator()(double Spot) const

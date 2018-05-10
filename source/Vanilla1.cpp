@@ -1,10 +1,3 @@
-//
-//
-//
-//                      Vanilla1.cpp
-//
-//
-
 #include <Vanilla1.h>
 
 VanillaOption::VanillaOption(PayOff& ThePayOff_, double Expiry_) : ThePayOff(ThePayOff_), Expiry(Expiry_)

@@ -1,47 +1,39 @@
-//
-//
-//                            PayOff2.h
-//
-//
-
 #ifndef PAYOFF2_H
 #define PAYOFF2_H
 
 class PayOff
 {
-public:
-    PayOff(){};
-    virtual double operator()(double Spot) const = 0;
-    virtual ~PayOff(){}
+    public:
+        PayOff(){};
 
-private:
+        virtual double operator()(double Spot) const = 0;
+        virtual ~PayOff(){}
 
+    private:
 };
-
 
 class PayOffCall : public PayOff
 {
-public:
-    PayOffCall(double Strike_);
-    virtual double operator()(double Spot) const;
-    virtual ~PayOffCall(){}
+    public:
+        PayOffCall(double Strike_);
 
-private:
-    double Strike;
+        virtual double operator()(double Spot) const;
+        virtual ~PayOffCall(){}
 
+    private:
+        double Strike;
 };
-
 
 class PayOffPut : public PayOff
 {
-public:
-    PayOffPut(double Strike_);
-    virtual double operator()(double Spot) const;
-    virtual ~PayOffPut(){}
+    public:
+        PayOffPut(double Strike_);
 
-private:
+        virtual double operator()(double Spot) const;
+        virtual ~PayOffPut(){}
+
+    private:
     double Strike;
-
 };
 
 #endif

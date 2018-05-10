@@ -1,9 +1,3 @@
-//
-//
-//                      BSCallTwo.cpp
-//
-//
-
 #include <BSCallTwo.h>
 #include <BlackScholesFormulas.h>
 
@@ -16,7 +10,6 @@ double BSCallTwo::Price(double Vol) const
 {
     return BlackScholesCall(Spot, Strike, r, d, Vol, T);
 }
-
 
 double BSCallTwo::Vega(double Vol) const
 {

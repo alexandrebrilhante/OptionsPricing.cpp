@@ -1,11 +1,3 @@
-//
-//
-//
-//		Arrays.h
-//
-//
-//
-
 #ifndef MJARRAYS_H
 #define MJARRAYS_H
 
@@ -17,79 +9,76 @@ typedef  std::valarray<double> MJArray;
 
 #else // ifdef USE_VAL_ARRAY
 
-
 class MJArray
 {
+    public:
+	    explicit MJArray(unsigned long size = 0);
+	    MJArray(const MJArray& original);
 
-public:
-	explicit MJArray(unsigned long size = 0);
-	MJArray(const MJArray& original);
+	    ~MJArray();
 
-	~MJArray();
+	    MJArray& operator=(const MJArray& original);
+	    MJArray& operator=(const double& val);
 
-	MJArray& operator=(const MJArray& original);
-	MJArray& operator=(const double& val);
+	    MJArray& operator+=(const MJArray& operand);
+	    MJArray& operator-=(const MJArray& operand);
+	    MJArray& operator/=(const MJArray& operand);
+	    MJArray& operator*=(const MJArray& operand);
 
-	MJArray& operator+=(const MJArray& operand);
-	MJArray& operator-=(const MJArray& operand);
-	MJArray& operator/=(const MJArray& operand);
-	MJArray& operator*=(const MJArray& operand);
+	    MJArray& operator+=(const double& operand);
+	    MJArray& operator-=(const double& operand);
+	    MJArray& operator/=(const double& operand);
+	    MJArray& operator*=(const double& operand);
 
-	MJArray& operator+=(const double& operand);
-	MJArray& operator-=(const double& operand);
-	MJArray& operator/=(const double& operand);
-	MJArray& operator*=(const double& operand);
+	    MJArray apply(double f(double)) const;
 
-	MJArray apply(double f(double)) const;
+	    inline double operator[](unsigned long i) const;
+	    inline double& operator[](unsigned long i);
 
-	inline double operator[](unsigned long i) const;
-	inline double& operator[](unsigned long i);
+	    inline unsigned long size() const;
 
-	inline unsigned long size() const;
+	    void resize(unsigned long newSize);
 
-	void resize(unsigned long newSize);
+	    double sum() const;
+	    double min() const;
+	    double max() const;
 
-	double sum() const;
-	double min() const;
-	double max() const;
+    private:
+        double* ValuesPtr;
+        double* EndPtr;
 
-private:
-	double* ValuesPtr;
-	double* EndPtr;
-
-	unsigned long Size;
-	unsigned long Capacity;
+        unsigned long Size;
+        unsigned long Capacity;
 
 };
 
 inline double MJArray::operator[](unsigned long i) const
 {
-#ifdef RANGE_CHECKING
-	if (i >= Size)
-	{
-		throw("Index out of bounds");
-	}
-#endif
+    #ifdef RANGE_CHECKING
+    if (i >= Size)
+    {
+        throw("Index out of bounds");
+    }
+    #endif
 
-	return ValuesPtr[i];
+    return ValuesPtr[i];
 }
-
 
 inline double& MJArray::operator[](unsigned long i)
 {
-#ifdef  RANGE_CHECKING
-	if (i >= Size)
-	{
-		throw("Index out of bounds");
-	}
-#endif
+    #ifdef  RANGE_CHECKING
+    if (i >= Size)
+    {
+        throw("Index out of bounds");
+    }
+    #endif
 
-	return ValuesPtr[i];
+    return ValuesPtr[i];
 }
 
 inline unsigned long MJArray::size() const
 {
-	return Size;
+    return Size;
 }
 
 #endif // ifdef USE_VAL_ARRAY
