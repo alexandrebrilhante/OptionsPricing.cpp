@@ -1,12 +1,3 @@
-/*
-Uses
-	DoubleDigital.cpp
-    PayOff2.cpp
-    Random1.cpp
-    SimpleMC3.cpp
-    Vanilla1.cpp
-*/
-
 #include<SimpleMC3.h>
 #include<DoubleDigital.h>
 #include<iostream>

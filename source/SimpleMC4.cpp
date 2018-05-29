@@ -21,19 +21,19 @@ double SimpleMonteCarlo3(const VanillaOption& TheOption,
     double runningSum = 0;
 
     for (unsigned long i = 0; i < NumberOfPaths; i++)
-	{
-	    double thisGaussian = GetOneGaussianByBoxMuller();
-
-	    thisSpot = movedSpot*exp(rootVariance*thisGaussian);
-
-	    double thisPayOff = TheOption.OptionPayOff(thisSpot);
-
-	    runningSum += thisPayOff;
-	}
-
-	double mean = runningSum/NumberOfPaths;
-
+    {
+        double thisGaussian = GetOneGaussianByBoxMuller();
+        
+        thisSpot = movedSpot*exp(rootVariance*thisGaussian);
+        
+        double thisPayOff = TheOption.OptionPayOff(thisSpot);
+        
+        runningSum += thisPayOff;
+    }
+    
+    double mean = runningSum / NumberOfPaths;
+    
     mean *= exp(-r*Expiry);
-
+    
     return mean;
 }

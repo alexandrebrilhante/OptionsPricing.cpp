@@ -1,19 +1,3 @@
-/*
-Uses
-Arrays.cpp
-    BinomialTree.cpp
-    BlackScholesFormulas.cpp
-    Normals.cpp
-    Parameters.cpp
-    PayOff3.cpp
-    PayOffBridge.cpp
-    PayOffForward.cpp
-    TreeAmerican.cpp
-    TreeEuropean.cpp
-    TreeMain.cpp
-    TreeProducts.cpp
-*/
-
 #include <BinomialTree.h>
 #include <TreeAmerican.h>
 #include <TreeEuropean.h>

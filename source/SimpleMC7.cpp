@@ -20,17 +20,17 @@ void SimpleMonteCarlo5(const VanillaOption& TheOption,
     double movedSpot = Spot*exp(r.Integral(0, Expiry)+itoCorrection);
     double thisSpot;
     double discounting = exp(-r.Integral(0, Expiry));
-
+    
     for (unsigned long i = 0; i < NumberOfPaths; i++)
 	{
-	    double thisGaussian = GetOneGaussianByBoxMuller();
-
-	    thisSpot = movedSpot*exp(rootVariance*thisGaussian);
-
-	    double thisPayOff = TheOption.OptionPayOff(thisSpot);
-
-	    gatherer.DumpOneResult(thisPayOff*discounting);
+        double thisGaussian = GetOneGaussianByBoxMuller();
+        
+        thisSpot = movedSpot*exp(rootVariance*thisGaussian);
+        
+        double thisPayOff = TheOption.OptionPayOff(thisSpot);
+        
+        gatherer.DumpOneResult(thisPayOff*discounting);
 	}
-
-	return;
+    
+    return;
 }

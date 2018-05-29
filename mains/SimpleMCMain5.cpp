@@ -1,11 +1,3 @@
-/*
-Uses
-	DoubleDigital.cpp
-    PayOff2.cpp
-    Random1.cpp
-    SimpleMC2.cpp
-*/
-
 #include<SimpleMC2.h>
 #include<DoubleDigital.h>
 #include<iostream>
@@ -50,6 +42,6 @@ int main()
 
     double tmp;
     cin >> tmp;
-
-	return 0;
+    
+    return 0;
 }

@@ -19,21 +19,21 @@ double SimpleMonteCarlo2(const PayOff& thePayOff,
     double movedSpot = Spot*exp(r*Expiry+itoCorrection);
     double thisSpot;
     double runningSum = 0;
-
+    
     for (unsigned long i = 0; i < NumberOfPaths; i++)
-	{
-	    double thisGaussian = GetOneGaussianByBoxMuller();
-
-	    thisSpot = movedSpot*exp(rootVariance*thisGaussian);
-
-	    double thisPayOff = thePayOff(thisSpot);
-
-	    runningSum += thisPayOff;
-	}
-
-	double mean = runningSum/NumberOfPaths;
-
+    {
+        double thisGaussian = GetOneGaussianByBoxMuller();
+        
+        thisSpot = movedSpot*exp(rootVariance*thisGaussian);
+        
+        double thisPayOff = thePayOff(thisSpot);
+        
+        runningSum += thisPayOff;
+    }
+    
+    double mean = runningSum/NumberOfPaths;
+    
     mean *= exp(-r*Expiry);
-
+    
     return mean;
 }

@@ -1,12 +1,3 @@
-/*
-Uses
-	PayOff3.cpp,
-    PayOffBridge.cpp,
-    Random1.cpp,
-    SimpleMC5.cpp
-    Vanilla3.cpp
-*/
-
 #include<SimpleMC5.h>
 #include<iostream>
 #include<Vanilla3.h>

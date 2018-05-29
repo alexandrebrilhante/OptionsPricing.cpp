@@ -25,17 +25,17 @@ void SimpleMonteCarlo6(const VanillaOption& TheOption,
     double discounting = exp(-r.Integral(0, Expiry));
 
     MJArray VariateArray(1);
-
+    
     for (unsigned long i = 0; i < NumberOfPaths; i++)
-	{
-	    generator.GetGaussians(VariateArray);
-
-	    thisSpot = movedSpot*exp(rootVariance*VariateArray[0]);
-
-	    double thisPayOff = TheOption.OptionPayOff(thisSpot);
-
-	    gatherer.DumpOneResult(thisPayOff*discounting);
+    {
+        generator.GetGaussians(VariateArray);
+        
+        thisSpot = movedSpot*exp(rootVariance*VariateArray[0]);
+        
+        double thisPayOff = TheOption.OptionPayOff(thisSpot);
+        
+        gatherer.DumpOneResult(thisPayOff*discounting);
 	}
-
-	return;
+    
+    return;
 }

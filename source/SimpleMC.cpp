@@ -30,11 +30,11 @@ double SimpleMonteCarlo2(const PayOff& thePayOff,
         double thisPayOff = thePayOff(thisSpot);
 
         runningSum += thisPayOff;
-	}
-
-	double mean = runningSum / NumberOfPaths;
-
+    }
+    
+    double mean = runningSum / NumberOfPaths;
+    
     mean *= exp(-r*Expiry);
-
+    
     return mean;
 }

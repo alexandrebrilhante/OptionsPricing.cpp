@@ -13,7 +13,7 @@
 template <class T>
 class PayOffHelper
 {
-	public:
+    public:
         PayOffHelper(std::string);
         static PayOff* Create(double);
 };

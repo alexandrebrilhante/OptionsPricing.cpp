@@ -22,18 +22,18 @@ double SimpleMonteCarlo4(const VanillaOption& TheOption,
 
     for (unsigned long i = 0; i < NumberOfPaths; i++)
 	{
-	    double thisGaussian = GetOneGaussianByBoxMuller();
+        double thisGaussian = GetOneGaussianByBoxMuller();
 
 	    thisSpot = movedSpot*exp(rootVariance*thisGaussian);
-
-	    double thisPayOff = TheOption.OptionPayOff(thisSpot);
-
-	    runningSum += thisPayOff;
+        
+        double thisPayOff = TheOption.OptionPayOff(thisSpot);
+        
+        runningSum += thisPayOff;
 	}
-
-	double mean = runningSum/NumberOfPaths;
-
+    
+    double mean = runningSum/NumberOfPaths;
+    
     mean *= exp(-r.Integral(0,Expiry));
-
+    
     return mean;
 }

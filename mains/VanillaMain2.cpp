@@ -1,11 +1,3 @@
-/*
-Uses
-    PayOff3.cpp,
-    Random1.cpp,
-    SimpleMC4.cpp
-    Vanilla2.cpp
-*/
-
 #include<SimpleMC4.h>
 #include<iostream>
 
@@ -65,6 +57,6 @@ int main()
 
     double tmp;
     cin >> tmp;
-
-	return 0;
+    
+    return 0;
 }

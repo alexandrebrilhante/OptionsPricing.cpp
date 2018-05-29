@@ -1,12 +1,3 @@
-/*
-Uses
-    PayOff3.cpp
-    PayOffBridge.cpp
-    PayOffFactory.cpp
-    PayOffRegistration.cpp
-
-*/
-
 #include <PayOff3.h>
 #include <PayOffConstructible.h>
 #include <PayOffBridge.h>

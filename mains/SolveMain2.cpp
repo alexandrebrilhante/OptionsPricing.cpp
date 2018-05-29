@@ -1,10 +1,3 @@
-/*
-Uses
-    BlackScholesFormulas.cpp
-    BSCallTwo.cpp
-    Normals.cpp
-*/
-
 #include <NewtonRaphson.h>
 #include <cmath>
 #include <iostream>

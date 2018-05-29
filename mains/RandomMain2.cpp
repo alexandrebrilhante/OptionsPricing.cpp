@@ -1,19 +1,3 @@
-/*
-Uses
-    AntiThetic.cpp
-    Arrays.cpp,
-    ConvergenceTable.cpp,
-    MCStatistics.cpp
-    Normals.cpp
-    Parameters.cpp,
-    PayOff3.cpp,
-    PayOffBridge.cpp,
-    Random2.cpp,
-    Random3.cpp,
-    SimpleMC8.cpp
-    Vanilla3.cpp,
-*/
-
 #include<SimpleMC8.h>
 #include<Random3.h>
 #include<iostream>

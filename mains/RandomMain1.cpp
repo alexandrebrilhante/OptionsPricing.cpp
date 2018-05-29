@@ -1,15 +1,3 @@
-/*
-Uses
-	ConvergenceTable.cpp
-	MCStatistics.cpp
-	Parameters.cpp,
-	PayOff3.cpp,
-    PayOffBridge.cpp,
-    Random1.cpp,
-    SimpleMC7.cpp
-	Vanilla3.cpp,
-*/
-
 #include<SimpleMC7.h>
 #include<iostream>
 #include<Vanilla3.h>
@@ -56,8 +44,8 @@ int main()
     StatisticsMean gatherer;
 
     ConvergenceTable gathererTwo(gatherer);
-
-	SimpleMonteCarlo5(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererTwo);
+    
+    SimpleMonteCarlo5(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererTwo);
 
     vector<vector<double> > results = gathererTwo.GetResultsSoFar();
     cout << "\nFor the call price the results are \n";

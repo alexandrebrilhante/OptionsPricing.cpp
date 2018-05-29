@@ -1,10 +1,3 @@
-/*
-Uses
-	PayOff2.cpp
-    Random1.cpp
-    SimpleMC2.cpp
-*/
-
 #include<SimpleMC2.h>
 #include<iostream>
 
