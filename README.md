@@ -1,3 +1,3 @@
-# OptionsPricing
+# OptionsPricing.cpp
 
-Pricing models for vanilla and exotic options in C++.
+Pricing models for vanilla options in C++.
